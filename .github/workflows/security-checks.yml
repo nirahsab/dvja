@@ -1,0 +1,27 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: security-check
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "master" ]
+
+jobs:
+  security-check:
+    name: Security checks
+    container: nirahsab/hub-cli:1.9
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run AppSec.Hub CLI
+        run: |
+          python3 /opt/scan/scan_codebase.py \
+            --url https://hub.demo.swordfishsecurity.com --token "${{ secrets.HUB_TOKEN }}" \
+            --appcode ${{  }} \
+            --codebase "${{ github.repositoryUrl }}:${{ github.ref_name }};;/;" \
+            --codebase-build-tool maven 
