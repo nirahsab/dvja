@@ -21,4 +21,4 @@ jobs:
       - name: Run AppSec.Hub CLI
         run: |
           ls -al /opt/scan
-        shell: bash
+        shell: sh
