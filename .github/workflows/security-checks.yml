@@ -16,7 +16,7 @@ jobs:
   security-check:
     name: Security checks
     container: nirahsab/hub-cli:1.9
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Run AppSec.Hub CLI
         run: |
