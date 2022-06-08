@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: Run AppSec.Hub CLI
         run: |
+          cd /opt/scan
           pwd
           python3 -m src.scan_codebase.py --appcode ${{ github.repository_owner }} --codebase "${{ github.repositoryUrl }}:${{ github.ref_name }};;/;" --codebase-build-tool maven --url https://hub.demo.swordfishsecurity.com --token "${{ secrets.HUB_TOKEN }}"
         shell: sh
