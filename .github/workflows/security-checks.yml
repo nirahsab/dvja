@@ -20,5 +20,6 @@ jobs:
     steps:
       - name: Run AppSec.Hub CLI
         run: |
-          python3 /opt/scan/src/scan_codebase.py
+          cd /opt/scan/
+          python3 src/scan_codebase.py
         shell: sh
