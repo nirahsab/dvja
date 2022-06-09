@@ -22,5 +22,6 @@ jobs:
         run: |
           echo "Appcode: ${{ github.repository_owner }}"
           echo "Codebase: ${{ github.repositoryUrl }};${{ github.ref_name }};;/;dvja-master"
+          cd /opt/scan 
           python3 -m src.scan_codebase.py --appcode ${{ github.repository_owner }} --codebase "${{ github.repositoryUrl }};${{ github.ref_name }};;/;dvja-master" --codebase-build-tool maven --url https://hub.demo.appsec.global --token "${{ secrets.HUB_TOKEN }}" --debug
         shell: sh
