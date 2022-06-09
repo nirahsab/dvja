@@ -20,8 +20,7 @@ jobs:
     steps:
       - name: Run AppSec.Hub CLI
         run: |
-          echo "Appcode: ${{ github.repository_owner }}"
-          echo "Codebase: https://github.com/nirahsab/dvja.git;${{ github.ref_name }};;/;dvja-master"
+          echo "Scan codebase: https://github.com/nirahsab/dvja.git;${{ github.ref_name }}"
           cd /opt/scan 
           python3 -m src.scan_codebase.py --appcode ${{ github.repository_owner }} --codebase "https://github.com/nirahsab/dvja.git;${{ github.ref_name }};;/;dvja-master" --codebase-build-tool maven --url https://hub.demo.appsec.global --token "${{ secrets.HUB_TOKEN }}" --debug
         shell: sh
